@@ -2,6 +2,7 @@
 
 from typing import Optional
 import socket
+import exceptions
 
 
 class ZavrClient:
@@ -31,4 +32,6 @@ class ZavrClient:
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._socket.connect((self._host, self._port))
         except OSError as e:
-            print(f"Ошибка подключения к серверу: {e}")
+            raise exceptions.ClientConnectionError(
+                "Something went wrong while connection to a server!"
+            ) from e
