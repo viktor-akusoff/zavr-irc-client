@@ -56,7 +56,7 @@ class ClientState:
     lock: threading.Lock = dataclasses.field(default_factory=threading.Lock)
 
 
-class ZavrClient:
+class IRCClient:
     """Implements class for working with single connection with single IRC server
     concurrently. Several objects can be created fron this class to represent
     diferent IRC server connections.
